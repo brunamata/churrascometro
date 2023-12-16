@@ -217,8 +217,8 @@ form {
     font-size: smaller;
 }
 
-#error-postal-code, 
-#invalid-name, 
+#invalid-postal-code, 
+#invalid-nome, 
 #invalid-email,
 #invalid-input,
 #no-input {
