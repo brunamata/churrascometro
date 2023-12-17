@@ -1,29 +1,25 @@
 import { useState } from "react";
 
-const NumberInput = (props) => {
+const NumberInput = ({amount, onAmountChange, type}) => {
 
-    const type = props.type
-
-    const tradution = {
+    const translaction = {
         women: "Mulheres",
         men: "Homens",
         kid: "Crianças"
     }
-
-    const [amount, setAmount] = useState(0);
 
     const handleAmount = (signal) => {
         
         if(signal === "-"){
 
             if(amount > 0){
-                setAmount(amount - 1)
+                onAmountChange(amount - 1)
             } 
             else return
 
         }
         else if(signal === "+"){
-            setAmount(amount + 1)
+            onAmountChange(amount + 1)
         }
         else return
     }
@@ -31,7 +27,7 @@ const NumberInput = (props) => {
     return (
         <>
             <div class="input-group">
-                <label for={type}>{tradution[type]}</label>
+                <label for={type}>{translaction[type]}</label>
                 <input type="number" id={type} value={amount} class="input-valid"/>
                 <div class="button-group">
                     <button class="input-group__button--small" onClick={() => handleAmount("-")}>-</button>

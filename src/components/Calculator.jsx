@@ -1,12 +1,16 @@
 import NumberInput from "./NumberInput";
 
-const Calculator = () =>{
+const Calculator = ({churrascoQuantidades, setValues}) =>{
+
+    const handleNumberInput = (type, value) => {
+        setValues({...churrascoQuantidades, [type]: value});
+    };
 
     return(
         <div class="row-first">
-            <NumberInput type="women"/>
-            <NumberInput type="men"/>
-            <NumberInput type="kid"/>
+            <NumberInput amount={churrascoQuantidades.women} onAmountChange={(value) => handleNumberInput('women', value)} type="women"/>
+            <NumberInput amount={churrascoQuantidades.men} onAmountChange={(value) => handleNumberInput('men', value)} type="men"/>
+            <NumberInput amount={churrascoQuantidades.kid} onAmountChange={(value) => handleNumberInput('kid', value)} type="kid"/>
         </div>
     )
 
